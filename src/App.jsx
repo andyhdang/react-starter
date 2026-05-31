@@ -1,0 +1,23 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "./App.css";
+import Navigation from "./components/Navigation";
+import Home from "./pages/home/Home";
+import StyleGuide from "./pages/style-guide/StyleGuide";
+
+function App() {
+  return (
+    <Router>
+      <div className="App">
+        <Navigation />
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/style-guide" element={<StyleGuide />} />
+          </Routes>
+        </main>
+      </div>
+    </Router>
+  );
+}
+
+export default App;

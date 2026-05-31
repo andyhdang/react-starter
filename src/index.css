@@ -1,0 +1,222 @@
+/* ==========================================================================
+   REACT APP STYLESHEET: BOILERPLATE & THEME SETUP
+   ==========================================================================
+   
+   Contents:
+   1. CSS Variables (The Theme Layer)
+   2. Global Resets
+   3. Base Styles & Typography
+
+   HOW TO USE THIS FILE FOR A NEW PROJECT:
+   This file acts as the single source of truth for your app's global design. 
+   Do not add component-specific styles here; keep this strictly for global 
+   variables, resets, and base HTML element styling.
+
+   ✅ SETUP CHECKLIST:
+   - [ ] 1. Fonts: Import your fonts (via Google Fonts in index.html, or local @font-face)
+   - [ ] 2. Fonts: Update the --sans, --heading, and --mono variables below.
+   - [ ] 3. Colors (Light): Define the base palette (text, bg, accents) in the standard :root.
+   - [ ] 4. Colors (Dark): Update the dark palette.
+   - [ ] 5. Theme Logic: Decide on dark mode behavior. 
+         -> If using a manual React toggle switch, keep the [data-theme="dark"] block.
+         -> If relying strictly on OS settings, delete the [data-theme="dark"] block.
+   - [ ] 6. Accessibility: Double-check contrast ratios between --text and --bg.
+   ========================================================================== */
+
+/* =========================================
+   1. CSS VARIABLES (The Theme Layer)
+   ========================================= */
+:root {
+  /* Colors */
+  --text: #6b6375;
+  --bg: #fff;
+  --border: #e5e4e7;
+  --code-bg: #f4f3ec;
+
+  /* Accents */
+  --accent: #aa3bff;
+  --accent-bg: rgba(170, 59, 255, 0.1);
+  --accent-border: rgba(170, 59, 255, 0.5);
+
+  /* Shadows & Elevations */
+  --shadow:
+    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+
+  /* Typography */
+  --sans: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --heading: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --mono: ui-monospace, Consolas, monospace;
+}
+
+/* Dark Mode (System preference OR manual toggle) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #9ca3af;
+    --bg: #16171d;
+    --border: #2e303a;
+    --code-bg: #1f2028;
+    --accent: #c084fc;
+    --accent-bg: rgba(192, 132, 252, 0.15);
+    --accent-border: rgba(192, 132, 252, 0.5);
+    --social-bg: rgba(47, 48, 58, 0.5);
+    --shadow:
+      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+  }
+}
+
+/* Optional: Allows for manual theme toggling via React state */
+[data-theme="dark"] {
+  --text: #9ca3af;
+  --bg: #16171d;
+  --border: #2e303a;
+  --code-bg: #1f2028;
+  --accent: #c084fc;
+  --accent-bg: rgba(192, 132, 252, 0.15);
+  --accent-border: rgba(192, 132, 252, 0.5);
+  --shadow:
+    rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+}
+
+/* =========================================
+   2. GLOBAL RESETS
+   ========================================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove default list styling */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Base HTML setup for responsive rem units */
+html {
+  color-scheme: light dark;
+  font-size: 100%; /* Default browser size, usually 16px */
+
+  @media (max-width: 1024px) {
+    font-size: 93.75%; /* Scales 1rem down to 15px on smaller screens */
+  }
+}
+
+/* Accessibility: Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* =========================================
+   3. BASE STYLES & TYPOGRAPHY
+   ========================================= */
+body {
+  min-height: 100svh;
+  color: var(--text);
+  background: var(--bg);
+  font-family: var(--sans);
+  font-size: 1.125rem;
+  line-height: 1.5;
+
+  /* Font smoothing */
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* React root container (Optional, but standard) */
+#root {
+  isolation: isolate; /* Creates a new stacking context for the app */
+}
+
+/* Media defaults */
+img,
+picture,
+svg,
+video,
+canvas {
+  display: block;
+  max-width: 100%;
+  height: auto; /* Maintains aspect ratio */
+}
+
+/* Form element resets */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Typography basics */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--heading);
+  text-wrap: balance; /* Modern CSS: prevents uneven hanging words in titles */
+}
+
+h1 {
+  font-size: 3.5rem; /* ~56px */
+  letter-spacing: -0.03em;
+  margin: 2rem 0;
+
+  @media (max-width: 1024px) {
+    font-size: 2.25rem; /* ~36px */
+    margin: 1.25rem 0;
+  }
+}
+
+h2 {
+  font-size: 1.5rem; /* ~24px */
+  line-height: 1.18;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.5rem;
+
+  @media (max-width: 1024px) {
+    font-size: 1.25rem; /* ~20px */
+  }
+}
+
+code,
+kbd,
+samp,
+pre {
+  font-family: var(--mono);
+}
+
+code {
+  padding: 0.125em 0.25em;
+  background: var(--code-bg);
+  border-radius: 0.25rem;
+}
+
+pre {
+  padding: 1rem;
+  background: var(--code-bg);
+  border-radius: 0.5rem;
+  overflow-x: auto;
+}
+
+pre code {
+  padding: 0;
+  background: none;
+}
