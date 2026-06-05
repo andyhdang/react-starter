@@ -21,5 +21,20 @@ A clean, highly optimized starting point for React applications. This template i
    git clone <repository-url> my-app
    cd my-app
    ```
+
 # my-react-app
+
 # react-starter
+
+## GitHub Pages Deployment
+
+1. Ensure the `base` value in [vite.config.js](vite.config.js) matches your repository name.
+2. Run `npm run deploy` to publish the `dist` folder.
+3. In GitHub, open Settings -> Pages.
+4. Set Source to `Deploy from a branch`.
+5. Select branch `gh-pages` and folder `/ (root)`.
+
+Notes:
+
+- This project uses `HashRouter` so direct page refreshes work on GitHub Pages.
+- If your repo name changes, update `base` in [vite.config.js](vite.config.js).
