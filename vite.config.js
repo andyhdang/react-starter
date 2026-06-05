@@ -5,6 +5,6 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   // Set this to your GitHub repository name when deploying to GitHub Pages.
   // For https://<user>.github.io/my-react-app-starter/, keep '/my-react-app-starter/'.
-  base: "/my-react-app-starter/",
+  base: "/react-starter/",
   plugins: [react()],
 });
