@@ -1,6 +1,7 @@
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Navigation from "./components/navigation/Navigation";
+import ComponentLibrary from "./pages/component-library/ComponentLibrary";
 import Home from "./pages/home/Home";
 import StyleGuide from "./pages/style-guide/StyleGuide";
 
@@ -13,6 +14,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/style-guide' element={<StyleGuide />} />
+            <Route path='/component-library' element={<ComponentLibrary />} />
           </Routes>
         </main>
       </div>

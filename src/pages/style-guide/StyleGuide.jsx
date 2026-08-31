@@ -42,19 +42,6 @@ npm run dev`}</code>
       </section>
 
       <section>
-        <h2>Forms</h2>
-
-        <input placeholder="Input inherits body typography" />
-
-        <button>Button inherits body typography</button>
-
-        <select>
-          <option>Option One</option>
-          <option>Option Two</option>
-        </select>
-      </section>
-
-      <section>
         <h2>Media Defaults</h2>
 
         <img src="https://picsum.photos/600/300" alt="Placeholder" />
@@ -143,22 +130,5 @@ npm run dev`}</code>
         </table>
       </section>
     </main>
-  );
-}
-
-function ColorToken({ name, variable }) {
-  return (
-    <div className="token-card">
-      <div
-        className="token-swatch"
-        style={{
-          background: `var(${variable})`,
-        }}
-      />
-
-      <strong>{name}</strong>
-
-      <code>{variable}</code>
-    </div>
   );
 }
