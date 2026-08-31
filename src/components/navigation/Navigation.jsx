@@ -11,6 +11,9 @@ export default function Navigation() {
         <li>
           <Link to="/style-guide">Style Guide</Link>
         </li>
+        <li>
+          <Link to="/component-library">Component Library</Link>
+        </li>
       </ul>
     </nav>
   );

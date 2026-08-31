@@ -1,0 +1,39 @@
+.component-library {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding: 3rem;
+}
+
+.component-library__header,
+.component-library__section {
+  margin-bottom: 4rem;
+}
+
+.component-library__description {
+  max-width: 42rem;
+}
+
+.component-library__preview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  margin-block: 1rem;
+  padding: 2rem;
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  background: var(--bg);
+}
+
+.component-library__states {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.component-library__states th,
+.component-library__states td {
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  text-align: left;
+}
