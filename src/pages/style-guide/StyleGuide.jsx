@@ -1,4 +1,16 @@
+import { NavLink, Outlet } from "react-router-dom";
 import "./StyleGuide.css";
+
+const sections = [
+  { id: "typography", label: "Typography" },
+  { id: "monospace", label: "Monospace Styles" },
+  { id: "media", label: "Media Defaults" },
+  { id: "elevation", label: "Elevation" },
+  { id: "accessibility", label: "Accessibility" },
+  { id: "tokens", label: "Design Tokens" },
+  { id: "icons", label: "Icons" },
+  { id: "motion", label: "Motion" },
+];
 
 export default function StyleGuide() {
   return (
@@ -11,124 +23,23 @@ export default function StyleGuide() {
         </p>
       </header>
 
-      <section>
-        <h2>Typography</h2>
-        <h1>Heading 1 Example</h1>
-        <h2>Heading 2 Example</h2>
-        <h3>Heading 3 Example</h3>
-        <h4>Heading 4 Example</h4>
-        <h5>Heading 5 Example</h5>
-        <h6>Heading 6 Example</h6>
-        <p>This is the body copy</p>
-        <p>
-          This is the inline <code>code</code> style
-        </p>
-      </section>
-
-      <section>
-        <h2>Monospace Styles</h2>
-        <p>
-          Keyboard shortcut: <kbd>⌘</kbd> + <kbd>K</kbd>
-        </p>
-        <p>
-          Terminal output: <samp>npm run dev</samp>
-        </p>
-        <pre>
-          <code>{`npm create vite@latest my-app -- --template react
-cd my-app
-npm install
-npm run dev`}</code>
-        </pre>
-      </section>
-
-      <section>
-        <h2>Media Defaults</h2>
-
-        <img src="https://picsum.photos/600/300" alt="Placeholder" />
-      </section>
-
-      <section>
-        <h2>Elevation</h2>
-
-        <div className="elevation-card">Shadow Token Example</div>
-      </section>
-
-      <section>
-        <h2>Accessibility Features</h2>
-
-        <ul className="feature-list">
-          <li>Supports system dark mode</li>
-          <li>Supports manual theme overrides</li>
-          <li>Respects reduced motion preferences</li>
-          <li>Uses rem-based typography scaling</li>
-          <li>Uses border-box sizing globally</li>
-          <li>Provides responsive typography</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Design Tokens</h2>
-
-        <table>
-          <thead>
-            <tr>
-              <th>Token</th>
-              <th>Purpose</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <tr>
-              <td>
-                <code>--text</code>
-              </td>
-              <td>Primary text color</td>
-            </tr>
-
-            <tr>
-              <td>
-                <code>--bg</code>
-              </td>
-              <td>Page background color</td>
-            </tr>
-
-            <tr>
-              <td>
-                <code>--accent</code>
-              </td>
-              <td>Primary accent color</td>
-            </tr>
-
-            <tr>
-              <td>
-                <code>--shadow</code>
-              </td>
-              <td>Elevation token</td>
-            </tr>
-
-            <tr>
-              <td>
-                <code>--sans</code>
-              </td>
-              <td>Body font family</td>
-            </tr>
-
-            <tr>
-              <td>
-                <code>--heading</code>
-              </td>
-              <td>Heading font family</td>
-            </tr>
-
-            <tr>
-              <td>
-                <code>--mono</code>
-              </td>
-              <td>Code font family</td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
+      <div className="docs-layout">
+        <aside className="docs-sidebar" aria-label="Style guide sections">
+          <p className="docs-sidebar-label">Sections</p>
+          <nav>
+            <ul>
+              {sections.map(({ id, label }) => (
+                <li key={id}>
+                  <NavLink to={id}>{label}</NavLink>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </aside>
+        <div className="docs-content">
+          <Outlet />
+        </div>
+      </div>
     </main>
   );
 }
