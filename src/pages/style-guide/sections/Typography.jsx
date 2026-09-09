@@ -1,0 +1,17 @@
+export default function Typography() {
+  return (
+    <section aria-labelledby="typography-heading">
+      <h2 id="typography-heading">Typography</h2>
+      <h1>Heading 1 Example</h1>
+      <h2>Heading 2 Example</h2>
+      <h3>Heading 3 Example</h3>
+      <h4>Heading 4 Example</h4>
+      <h5>Heading 5 Example</h5>
+      <h6>Heading 6 Example</h6>
+      <p>This is the body copy</p>
+      <p>
+        This is the inline <code>code</code> style
+      </p>
+    </section>
+  );
+}
